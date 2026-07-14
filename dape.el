@@ -4723,7 +4723,7 @@ current buffer with CONN config."
         (when prop-org
           (setq prop (substring prop 0 (string-match-p "\n" prop)))
           (if (and (> max 0) (length> prop max))
-              (push (propertize (string-truncate-left prop max) 'help-echo prop-org)
+              (push (propertize (truncate-string-to-width prop max 0 nil "...") 'help-echo prop-org)
                     columns)
             (push prop columns)))))
     (nreverse columns)))
